@@ -1,0 +1,91 @@
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan make:migration remove_event_date_from_event_table
+
+   INFO  Migration [C:\Users\CSDPC\Documents\tth-tuquib\project1\database\migrations/2024_10_08_083030_remove_event_date_from_event_table.php] created successfully.
+
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan migrate
+
+   INFO  Running migrations.
+
+  2024_10_08_083030_remove_event_date_from_event_table .. 29.36ms DONE
+
+
+
+
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan make:migration rename_adminName_from_event_table
+
+   INFO  Migration [C:\Users\CSDPC\Documents\tth-tuquib\project1\database\migrations/2024_10_08_083932_rename_admin_name_from_event_table.php] created successfully.
+
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan migrate
+
+   INFO  Running migrations.
+
+  2024_10_08_083932_rename_admin_name_from_event_table .. 17.28ms DONE
+
+
+
+
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan make:migration rename_event_table
+
+   INFO  Migration [C:\Users\CSDPC\Documents\tth-tuquib\project1\database\migrations/2024_10_08_085509_rename_event_table.php] created successfully.
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan migrate
+
+   INFO  Running migrations.
+
+  2024_10_08_085509_rename_event_table .................. 21.02ms DONE
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan make:migration create_palaro_table
+
+   INFO  Migration [C:\Users\CSDPC\Documents\tth-tuquib\project1\database\migrations/2024_10_08_085845_create_palaro_table.php] created successfully.
+
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan migrate
+
+   INFO  Running migrations.
+
+  2024_10_08_085845_create_palaro_table ................. 22.31ms DONE
+
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan make:migration drop_palaro_table
+
+   INFO  Migration [C:\Users\CSDPC\Documents\tth-tuquib\project1\database\migrations/2024_10_08_090148_drop_palaro_table.php] created successfully.
+
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>php artisan migrate
+
+   INFO  Running migrations.
+
+  2024_10_08_090148_drop_palaro_table ................... 31.36ms DONE
+
+
+C:\Users\CSDPC\Documents\tth-tuquib\project1>
+
+
+
+
+
+
+
+C:\Users\CSDPC\Documents\tth-rosaupan\project>php artisan make:migration create_category_table
+
+   INFO  Migration [C:\Users\CSDPC\Documents\tth-rosaupan\project\database\migrations/2024_10_08_090814_create_category_table.php] created successfully.
+
+
+C:\Users\CSDPC\Documents\tth-rosaupan\project>
+
+
+    public function up(): void
+    {
+        Schema::create('category', function (Blueprint $table) {
+            $table->id();
+            $table->string('category_name');
+            $table->string('category_description');
+            $table->string('event_id');
+            $table->timestamps();
+
+            $table->foreign('event_id')->references('id')-on('event_data')->onDelete('restrict');
+        });
